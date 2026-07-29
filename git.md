@@ -465,3 +465,45 @@ git shortlog --since="2012-01-01" --until="2012-12-31"
 %cr Относительная дата коммитера
 
 %s Содержание
+
+# вывод reference log
+# отображает только локальную историю
+git reflog
+
+# перемещение в другой репозиторий и вывод аналогичной информации о нем
+cd ../hellogitworld
+pwd
+git reflog
+
+# Сценарий использования: Восстановление удаленного коммита
+#
+git reflog
+git log --oneline
+git reset --hard HEAD~1
+git log --oneline
+git reflog
+git reset --hard 10f7044
+git log –oneline
+
+# Сценарий использования: Удаление старых записей
+#
+git reflog
+git reflog expire --expire=7.days --all --verbose
+git reflog
+
+git reflog expire --expire=1.minutes --all –-verbose
+git reflog
+
+# запуск сборщика мусора Git
+git gc
+
+# Сравнительная таблица
+
+Характеристика	        git log	                    git reflog
+Что показывает	        Коммиты	                    Перемещения HEAD
+Объем данных	        Только достижимые коммиты	Все операции
+Время хранения	        Бессрочно	                90 дней (по умолчанию)
+Для чего использовать	Анализ истории	            Восстановление данных
+Порядок вывода	        От новых к старым	        От новых к старым
+Показывает мержи	    Да	                        Да
+Покажает reset	        Нет	                        Да
