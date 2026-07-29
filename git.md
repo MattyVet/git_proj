@@ -266,3 +266,35 @@ git clean -f -d -n
 # ключ -q -- тихое выполнение команды
 # не выводит комментарии о ходе своего выполнения
 git clean -f -d -q
+
+# переименование файла в терминале
+mv page1.html index.html
+
+# набор команд для корректного переименования в Git
+mv page1.html index.html
+git add index.html
+git rm page1.html
+
+# переименование/перемещение файла в Git одной командой
+git mv page1.html index.html
+
+# вызов справки
+git mv --help
+
+# создаем папку styles
+mkdir styles
+
+# перемещаем файл с CSS-стилями в новую папку
+git mv styles.css styles
+
+# делаем коммит
+git commit -m "create folder for css styles"
+
+# переименование папки в Git
+git mv styles css
+
+# создаем папку web_pages
+mkdir web_pages
+
+# перемещение набора файлов
+git mv *.html web_pages
