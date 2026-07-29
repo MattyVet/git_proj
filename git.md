@@ -210,3 +210,59 @@ git revert 9e59768..4b2413e
 
 # откатить коммит без создания нового коммита (изменения попадают в индекс)
 git revert 9e59768 --no-commit
+
+# вызов справки
+git rm --help
+
+# удаление файла из каталога (команда терминала)
+rm page2.html
+
+# удаление файла из Git-репозитория
+git rm page2.html
+
+# форсированное удаление файла (если есть изменения в индексе)
+git rm page2.html -f
+git rm page2.html --force
+
+# удаление каталога
+git rm my_folder -r
+git rm my_folder --recursive
+
+# вызов справки
+git clean --help
+
+# сценарий 1
+# создадим ненужные файлы
+touch some_binary_file{1..9}.bin
+ls
+
+# посмотрим их статус
+git status
+
+# очистим Git от этих файлов
+git clean -f
+ls
+git status
+
+# сценарий 2
+# создадим пустые папки
+mkdir bin
+mkdir tmp
+ls
+
+# посмотрим их статус
+git status
+
+# очистим Git от этих пустых каталогов
+git clean -d -f
+ls
+git status
+
+# ключ -n -- 'холостой прогон команды'
+# покажет, что будет происходить при выполнении команды
+git clean -f -n
+git clean -f -d -n
+
+# ключ -q -- тихое выполнение команды
+# не выводит комментарии о ходе своего выполнения
+git clean -f -d -q
