@@ -635,3 +635,42 @@ git status
 
 # отправляем наш коммит на удаленный репозиторий
 git push
+
+##### на домашнем ПК
+# переместимся в родительский каталог
+cd ..
+# создадим папку для нового клонируемого репозитория
+mkdir github_repo_clone
+# переместимся в новую папку
+cd github_repo_clone
+ls
+
+# клонируем репозиторий из GitHub на локальный компьютер
+git clone https://github.com/pragmatic-programmer-education/first_project.git
+# проверяем
+ls -a
+git status
+git log
+git reflog
+
+# выполним некоторые изменения для нового коммита
+cp web_pages/page2.html web_pages/page3.html
+nano page3.html
+
+# добавим все изменения в индекс
+git add .
+# выполним новый коммит
+git commit
+# отправим (запушим) на GitHub новый локальный коммит
+git push
+
+
+# на рабочем ПК
+# проверяем состояние индекса
+git status
+# проверяем коммиты
+git log --oneline
+# забираем с GitHub все новые изменения на текущий компьютер
+git pull
+# проверяем коммиты
+git log --oneline
